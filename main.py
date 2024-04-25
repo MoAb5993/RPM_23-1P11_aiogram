@@ -6,7 +6,7 @@ from aiogram.filters import Command
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 
-bot = Bot(token="6495085956:AAHNbitT6w1lRBmFhO0X9zpaUhk-aqKoupo")
+bot = Bot(token="")
 dp = Dispatcher()
 
 router = Router()
