@@ -1,4 +1,4 @@
-"""Уээээ"""
+"""Иипорты модулей"""
 from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.types import BotCommand, Message, CallbackQuery
@@ -8,7 +8,7 @@ router = Router()
 
 @router.message(Command("start"))
 async def start_handler(msg: Message):
-    """Уээээ"""
+    """Список команд"""
     #pylint: disable= C0415
     from main import bot
     await bot.set_my_commands([
@@ -20,14 +20,14 @@ async def start_handler(msg: Message):
 
 @router.callback_query(F.data == 'next')
 async def next_handler(callback_query: CallbackQuery):
-    """Уээээ"""
+    """Смена страницы на вторую"""
     await callback_query.message.edit_text(
         'Страница 2', reply_markup=kb.back_page_btn
     )
 
 @router.callback_query(F.data == 'back')
 async def back_handler(callbck_query: CallbackQuery):
-    """Уээээ"""
+    """Смена страницы на первую"""
     await callbck_query.message.delete()
     await callbck_query.message.answer(
         text='Страница 1',

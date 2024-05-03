@@ -23,7 +23,7 @@ async def next_handler(callback_query: CallbackQuery, state: FSMContext):
 
 @router.message(Anketa.name)
 async def set_name_by_anketa_handler(msg: Message, state: FSMContext):
-    '''Имя'''
+    '''Ввод Имени'''
     await state.update_data(name=msg.text)
     await state.set_state(Anketa.age)
     await msg.answer('Введите ваш возраст', reply_markup=kb.anketa_btn)
@@ -35,7 +35,7 @@ async def next_handler_(callback_query: CallbackQuery, state: FSMContext):
 
 @router.message(Anketa.age)
 async def set_age_by_anketa_handler(msg: Message, state: FSMContext):
-    '''Возраст'''
+    '''Ввод Возраста'''
     try:
         await state.update_data(age=int(msg.text))
     except ValueError:
@@ -48,14 +48,14 @@ async def set_age_by_anketa_handler(msg: Message, state: FSMContext):
 
 @router.callback_query(F.data =='Male',Anketa.gender)
 async def mujik(callback_query: CallbackQuery, state: FSMContext):
-    '''Мужской пол'''
+    '''Выбор мужского пола'''
     await state.update_data(gender="m")
     await callback_query.message.answer(str(state.get_data()))
     await state.clear()
 
 @router.callback_query(F.data =='Female',Anketa.gender)
 async def wife(callback_query: CallbackQuery, state: FSMContext):
-    """Уээээ"""
+    """Выбор женского пола"""
     await state.update_data(gender="W")
     await callback_query.message.answer(str(state.get_data()))
     await state.clear()

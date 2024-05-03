@@ -1,4 +1,4 @@
-"""Уээээ"""
+"""Кнопки для выбора пола, смены страниц и отмена анкеты"""
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 cancel_anketa_btn = InlineKeyboardMarkup(inline_keyboard=[
@@ -24,4 +24,3 @@ next_page_btn = InlineKeyboardMarkup(inline_keyboard=[
 back_page_btn = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text='Назад', callback_data='back')]
     ])
-# 123
